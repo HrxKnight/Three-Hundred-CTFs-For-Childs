@@ -1,0 +1,13 @@
+version: '3.7'
+
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: flask_medium_level
+    ports:
+      - "${HOST_PORT}:${DOCKER_PORT}"
+    restart: unless-stopped
+    environment:
+      DOCKER_PORT: ${DOCKER_PORT}
